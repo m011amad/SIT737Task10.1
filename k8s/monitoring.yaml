@@ -1,0 +1,13 @@
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata:
+  name: cloud-app-monitoring
+  namespace: cloud-app
+spec:
+  selector:
+    matchLabels:
+      app: cloud-app
+  endpoints:
+  - port: 3000
+    path: /metrics
+    interval: 30s
